@@ -1,1 +1,6 @@
-# tuyishime-
+GROUP NAME
+1.TUYISHIME Elie
+2.SINGAYISHIMWE HERVE Cadeau
+3.SENGA NSHUTI Bruce
+4.SHEMA Moise
+5.SHEMA Bruce
