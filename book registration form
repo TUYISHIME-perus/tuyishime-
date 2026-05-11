@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Registration Form</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #4e73df, #1cc88a);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background: #fff;
+      width: 400px;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    }
+
+    .container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      color: #444;
+      font-weight: bold;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: #4e73df;
+    }
+
+    textarea {
+      resize: none;
+      height: 80px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #4e73df;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #375ac2;
+    }
+
+    .success-message {
+      margin-top: 15px;
+      text-align: center;
+      color: green;
+      font-weight: bold;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Book Registration</h2>
+
+    <form id="bookForm">
+      <div class="form-group">
+        <label for="title">Book Title</label>
+        <input type="text" id="title" required>
+      </div>
+
+      <div class="form-group">
+        <label for="author">Author Name</label>
+        <input type="text" id="author" required>
+      </div>
+
+      <div class="form-group">
+        <label for="isbn">ISBN Number</label>
+        <input type="text" id="isbn" required>
+      </div>
+
+      <div class="form-group">
+        <label for="category">Category</label>
+        <select id="category" required>
+          <option value="">Select Category</option>
+          <option>Science</option>
+          <option>Technology</option>
+          <option>History</option>
+          <option>Fiction</option>
+          <option>Education</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description"></textarea>
+      </div>
+
+      <button type="submit">Register Book</button>
+
+      <div class="success-message" id="successMsg">
+        Book Registered Successfully!
+      </div>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById("bookForm");
+    const successMsg = document.getElementById("successMsg");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      // Simple validation
+      const title = document.getElementById("title").value.trim();
+      const author = document.getElementById("author").value.trim();
+      const isbn = document.getElementById("isbn").value.trim();
+
+      if (title === "" || author === "" || isbn === "") {
+        alert("Please fill all required fields.");
+        return;
+      }
+
+      // Show success message
+      successMsg.style.display = "block";
+
+      // Reset form
+      form.reset();
+
+      // Hide message after 3 seconds
+      setTimeout(() => {
+        successMsg.style.display = "none";
+      }, 3000);
+    });
+  </script>
+
+</body>
+</html>
